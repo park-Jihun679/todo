@@ -65,17 +65,24 @@ body {
   flex: 1;
   text-align: left;
 }
-.item span .input-time {
+.item span:first-child {
+  flex: 2;
+}
+
+.item .input-time {
+  flex: 0.8;
   text-align: right;
 }
-.input-time.item_done {
+
+.item .input-time.item_done {
   display: none;
 }
 .finish-time {
   display: none;
 }
-.finish-time.item_done {
-  right: 0;
+.item .item_done .finish-time {
+  flex: 0.8;
+  text-align: right;
 }
 
 /*  아이콘 */
