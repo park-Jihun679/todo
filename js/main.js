@@ -4,16 +4,22 @@ const items = document.querySelector('.items'); // ul
 
 function createItem(text) {
   console.log(text);
+
   const itemRow = document.createElement('li');
   itemRow.className = 'item';
   itemRow.innerHTML = `
-          <span>${text}</span>
+          <span class="todo">${text}</span>
+          <span class="input-time">${getDate()}</span>
+          <span class="finish-time"></span>
           <i class="fa-solid fa-check"></i>
           <i class="fa-solid fa-trash"></i>`;
 
   // 체크 버튼 클릭 시 클래스 추가 이벤트
   itemRow.querySelector('.fa-check').addEventListener('click', () => {
     itemRow.classList.toggle('item_done');
+
+    const endDate = itemRow.querySelector('.finish-time');
+    endDate.textContent = getDate();
   });
 
   // 삭제 버튼 클릭 시 itemRow 제거 이벤트
@@ -46,3 +52,13 @@ addBtn.addEventListener('click', onAdd);
 // && 앞이 true면 뒤를 무조건 실행
 // || 앞이 false면 뒤를 실행
 input.addEventListener('keypress', (e) => e.key === 'Enter' && onAdd());
+
+function getDate() {
+  const date = new Date();
+  const nowMonth = date.getMonth() + 1;
+  const nowDate = date.getDate();
+  const nowHours = date.getHours();
+  const nowMinutes = date.getMinutes();
+
+  return nowMonth + '/' + nowDate + ' ' + nowHours + ':' + nowMinutes;
+}
