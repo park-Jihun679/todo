@@ -74,15 +74,20 @@ body {
   text-align: right;
 }
 
-.item .input-time.item_done {
+.item.item_done .input-time {
   display: none;
 }
 .finish-time {
   display: none;
 }
-.item .item_done .finish-time {
+.item.item_done .finish-time {
+  display: inline;
   flex: 0.8;
   text-align: right;
+  font-weight: bold;
+  color: lightskyblue;
+  opacity: 1;
+  text-decoration: none;
 }
 
 /*  아이콘 */
